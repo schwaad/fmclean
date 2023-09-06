@@ -10,17 +10,17 @@
     {
       "lean": "lemma example2 (x y : mynat) (h : y = x + 7) : 2 * y = 2 * (x + 7) :=\n",
       "isSolved": true,
-      "editorText": "rw h,\r\nrefl,"
+      "editorText": "rw h, \r\nrefl,"
     },
     {
       "lean": "lemma example3 (a b : mynat) (h : succ a = b) : succ(succ(a)) = succ(b) :=\n",
       "isSolved": true,
-      "editorText": "rw h,\r\nrefl,"
+      "editorText": "rw h, \r\nrefl,"
     },
     {
       "lean": "lemma add_succ_zero (a : mynat) : a + succ(0) = succ(a) :=\n",
       "isSolved": true,
-      "editorText": "rw add_succ,\r\nrw add_zero,\r\nrefl,"
+      "editorText": "rw add_succ, \r\nrw add_zero,\r\nrefl,"
     },
     {
       "lean": "lemma zero_add (n : mynat) : 0 + n = n :=\n",
@@ -122,7 +122,8 @@
     },
     {
       "lean": "example (P Q : Type) (p : P) (h : P → Q) : Q :=\n",
-      "editorText": "sorry"
+      "isSolved": true,
+      "editorText": "exact h(p),\r\n"
     },
     {
       "lean": "example : mynat → mynat :=\n",
