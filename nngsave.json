@@ -54,7 +54,8 @@
     },
     {
       "lean": "lemma zero_mul (m : mynat) : 0 * m = 0 :=\n",
-      "editorText": "sorry"
+      "isSolved": true,
+      "editorText": "induction m with z mz,\r\nrw mul_zero,\r\nrefl,\r\nrw mul_succ,\r\nrw add_zero,\r\nrw mz,\r\nrefl,\r\n"
     },
     {
       "lean": "lemma mul_one (m : mynat) : m * 1 = m :=\n",
@@ -68,7 +69,8 @@
     },
     {
       "lean": "lemma mul_add (t a b : mynat) : t * (a + b) = t * a + t * b :=\n",
-      "editorText": "sorry"
+      "isSolved": true,
+      "editorText": "induction b with m tm, --Indução no termo mais a direita da expressão\r\nrw add_zero a,\r\nrw mul_zero t,\r\nrw add_zero (t*a),\r\nrefl,\r\nrw add_succ a,\r\nrw mul_succ t,\r\nrw tm,\r\nrw mul_succ t,\r\nrw add_assoc,\r\nrefl,"
     },
     {
       "lean": "lemma mul_assoc (a b c : mynat) : (a * b) * c = a * (b * c) :=\n",
