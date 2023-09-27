@@ -279,23 +279,28 @@
     },
     {
       "lean": "theorem succ_inj' {a b : mynat} (hs : succ(a) = succ(b)) :  a = b := \n",
-      "editorText": "sorry"
+      "isSolved": true,
+      "editorText": "apply succ_inj,\r\napply hs,\r\n"
     },
     {
       "lean": "theorem succ_succ_inj {a b : mynat} (h : succ(succ(a)) = succ(succ(b))) :  a = b := \n",
-      "editorText": "sorry"
+      "isSolved": true,
+      "editorText": "exact succ_inj(succ_inj(h)),\r\n"
     },
     {
       "lean": "theorem succ_eq_succ_of_eq {a b : mynat} : a = b → succ(a) = succ(b) :=\n",
-      "editorText": "sorry"
+      "isSolved": true,
+      "editorText": "intro hs,\r\nrwa hs,\r\n"
     },
     {
       "lean": "theorem succ_eq_succ_iff (a b : mynat) : succ a = succ b ↔ a = b :=\n",
-      "editorText": "sorry"
+      "isSolved": true,
+      "editorText": "split, \r\nexact succ_inj,\r\nintro hs,\r\nrwa hs,"
     },
     {
       "lean": "theorem add_right_cancel (a t b : mynat) : a + t = b + t → a = b :=\n",
-      "editorText": "sorry"
+      "isSolved": true,
+      "editorText": "induction t with h ht,\r\nrepeat {rw add_zero},\r\nintro hs,\r\nrwa hs,\r\nrepeat {rw add_succ},\r\nintro hs,\r\nhave hc := succ_inj(hs),\r\nexact ht(hc),\r\n\r\n"
     },
     {
       "lean": "theorem add_left_cancel (t a b : mynat) : t + a = t + b → a = b :=\n",
