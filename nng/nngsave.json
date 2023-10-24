@@ -364,39 +364,48 @@
     },
     {
       "lean": "lemma one_add_le_self (x : mynat) : x ≤ 1 + x :=\n",
-      "editorText": "sorry"
+      "isSolved": true,
+      "editorText": "rw le_iff_exists_add,\r\nuse 1,\r\nrw add_comm,"
     },
     {
       "lean": "lemma le_refl (x : mynat) : x ≤ x :=\n",
-      "editorText": "sorry"
+      "isSolved": true,
+      "editorText": "rw le_iff_exists_add,\r\nuse 0,\r\nrwa add_zero,"
     },
     {
       "lean": "theorem le_succ (a b : mynat) : a ≤ b → a ≤ (succ b) :=\n",
-      "editorText": "sorry"
+      "isSolved": true,
+      "editorText": "intro h,\r\nrw le_iff_exists_add at h ⊢,\r\ncases h with c hc,\r\nuse succ c,\r\nrw add_succ,\r\nrwa hc,\r\n"
     },
     {
       "lean": "lemma zero_le (a : mynat) : 0 ≤ a :=\n",
-      "editorText": "sorry"
+      "isSolved": true,
+      "editorText": "rw le_iff_exists_add,\r\nuse a,\r\nrwa zero_add,"
     },
     {
       "lean": "theorem le_trans (a b c : mynat) (hab : a ≤ b) (hbc : b ≤ c) : a ≤ c :=\n",
-      "editorText": "sorry"
+      "isSolved": true,
+      "editorText": "cases hab with p hp,\r\ncases hbc with n hn,\r\nrw hn,\r\nrw hp,\r\nuse p + n,\r\nrwa add_assoc,"
     },
     {
       "lean": "theorem le_antisymm (a b : mynat) (hab : a ≤ b) (hba : b ≤ a) : a = b :=\n",
-      "editorText": "sorry"
+      "isSolved": true,
+      "editorText": "cases hab with p hp,\r\ncases hba with n hn,\r\nrw hp at hn,\r\nrw add_assoc at hn,\r\nsymmetry at hn,\r\nhave g := eq_zero_of_add_right_eq_self hn,\r\nhave f := add_right_eq_zero g,\r\nrw hp,\r\nrw f,\r\nrwa add_zero,\r\n\r\n"
     },
     {
       "lean": "lemma le_zero (a : mynat) (h : a ≤ 0) : a = 0 :=\n",
-      "editorText": "sorry"
+      "isSolved": true,
+      "editorText": "cases h with p hp,\r\nsymmetry at hp,\r\nexact add_right_eq_zero hp,\r\n"
     },
     {
       "lean": "lemma succ_le_succ (a b : mynat) (h : a ≤ b) : succ a ≤ succ b :=\n",
-      "editorText": "sorry"
+      "isSolved": true,
+      "editorText": "cases h with p hp,\r\nrw le_iff_exists_add,\r\nuse p,\r\nrw succ_add,\r\nrwa hp,"
     },
     {
       "lean": "theorem le_total (a b : mynat) : a ≤ b ∨ b ≤ a :=\n",
-      "editorText": "sorry"
+      "isSolved": true,
+      "editorText": "revert a,\r\ninduction b with p hp,\r\nintro a,\r\nright,\r\napply zero_le,\r\nintro q,\r\ncases q with m n,\r\nleft,\r\napply zero_le,\r\nhave g := hp(m),\r\ncases g with hg hf,\r\nleft,\r\napply succ_le_succ,\r\nexact hg,\r\nright,\r\napply succ_le_succ,\r\nexact hf,"
     },
     {
       "lean": "lemma le_succ_self (a : mynat) : a ≤ succ a :=\n",
